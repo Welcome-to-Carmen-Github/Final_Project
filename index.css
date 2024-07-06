@@ -1,0 +1,91 @@
+body {
+  background-color: #f9e6e9;
+  font-family: poppins;
+  display: block;
+  margin: 8px;
+}
+
+header {
+  padding: 10px 5px;
+  font-family: poppins;
+}
+
+.weather-app {
+  display: block;
+  text-align: center;
+  background: white;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 30px;
+  box-shadow: 0 30px 50 px rgba(65, 50, 100, 0);
+  border-radius: 10px;
+}
+
+.search-form-input {
+  background-color: #f9e6e9;
+  border: none;
+  border-radius: 5px;
+  width: 80%;
+  font-size: 18px;
+  padding: 10px 20px;
+}
+.search-form-button {
+  background-color: fuchsia;
+  padding: 10px 20px;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  color: white;
+}
+
+main {
+  padding: 30px 0;
+}
+
+.wheather-app-main-data {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+}
+.wheater-app-city {
+  font-size: 30px;
+  margin: 0;
+  line-height: 400px;
+}
+
+.wheather-app-details {
+  display: block;
+  font-size: 18px;
+  color: rgba(65, 50, 100, 0.6);
+  line-height: 20px;
+}
+#humidity {
+  color: rgb(249, 45, 229);
+}
+
+#wind {
+  color: rgb(249, 45, 229);
+}
+.actual {
+  display: flex;
+}
+
+.wheather-app-icon {
+  font-size: 40px;
+  margin-right: 5px;
+}
+.wheather-app-temp {
+  font-size: 50px;
+  font-weight: bold;
+}
+.wheather-app-unit {
+  font-size: 25px;
+  margin-top: 10px;
+}
+footer {
+  padding: 10px 5px;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(65, 50, 100, 0.6);
+}
