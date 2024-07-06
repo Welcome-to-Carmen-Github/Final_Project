@@ -37,6 +37,7 @@ function search(event) {
     let iconElement = document.querySelector("#current-icon");
     iconElement.innerHTML = `<img src="${fullData.condition.icon_url}" />`;
   }
+  apiForecast(cityElement.textContent);
 }
 
 /* 1.2.1 - Função para formatar a data para obter dia da semana e hora e minutos*/
@@ -80,30 +81,50 @@ let currentDate = new Date();
 
 currentDateELement.innerHTML = formatDate(currentDate);
 
+/* ir buscar informação de forecast ao API */
+
+function apiForecast(city) {
+  let apiKey = "634534df08f99d8a1bo3c3538aat8763";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+  axios(apiUrl).then(displayForecast);
+}
 /* fazer um java template para criar 5 dias de previsão*/
 
-function displayForecast() {
-  let days = ["tue", "wed", "thu", "Fri", "Sat"];
+/* vai traduzir o timestamp em dia da semana */
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[date.getDay()];
+}
+
+function displayForecast(response) {
+  console.log(response.data);
+
   let forecastHTML = "";
 
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
- <div class="wheather-forecast-week">
-   <div class="wheather-forecast-day">${day}</div>
-   <div class="wheather-forecast-icon">⛅</div>
-   <div class="wheather-forecast-temps">
-     <div class="wheather-forecast-temp">
-       <strong>15º</strong>
-     </div>
-     <div class="wheather-forecast-temp">9º</div>
-   </div>
- </div>`;
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
+        <div class="wheather-forecast-week">
+         <div class="wheather-forecast-day">${formatDay(day.time)} </div>
+         <div class="wheather-forecast-icon"> <img src = "${
+           day.condition.icon_url
+         }"></div>
+         <div class="wheather-forecast-temps">
+           <div class="wheather-forecast-temp">
+             <strong>${Math.round(day.temperature.maximum)}º</strong>
+           </div>
+         <div class="wheather-forecast-temp">${Math.round(
+           day.temperature.minimum
+         )}º</div>
+          </div>
+        </div>`;
+    }
   });
 
   let forecastElement = document.querySelector("#fore-cast");
   forecastElement.innerHTML = forecastHTML;
 }
-
-displayForecast();
