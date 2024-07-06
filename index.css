@@ -48,10 +48,11 @@ main {
   justify-content: space-between;
   text-align: left;
 }
-.wheater-app-city {
+.wheather-app-city {
   font-size: 30px;
   margin: 0;
-  line-height: 400px;
+  line-height: 80px;
+  text-transform: lowercase;
 }
 
 .wheather-app-details {
