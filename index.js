@@ -79,3 +79,31 @@ let currentDateELement = document.querySelector("#current-date");
 let currentDate = new Date();
 
 currentDateELement.innerHTML = formatDate(currentDate);
+
+/* fazer um java template para criar 5 dias de previsão*/
+
+function displayForecast() {
+  let days = ["tue", "wed", "thu", "Fri", "Sat"];
+  let forecastHTML = "";
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+ <div class="wheather-forecast-week">
+   <div class="wheather-forecast-day">${day}</div>
+   <div class="wheather-forecast-icon">⛅</div>
+   <div class="wheather-forecast-temps">
+     <div class="wheather-forecast-temp">
+       <strong>15º</strong>
+     </div>
+     <div class="wheather-forecast-temp">9º</div>
+   </div>
+ </div>`;
+  });
+
+  let forecastElement = document.querySelector("#fore-cast");
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();

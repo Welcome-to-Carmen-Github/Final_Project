@@ -84,12 +84,12 @@ main {
   margin-top: 10px;
 }
 
-.wheather-app-forcast {
+.wheather-app-forecast {
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
 }
-.wheather-forcast-day {
+.wheather-forecast-day {
   text-align: center;
   color: grey;
   font-size: 16px;
@@ -97,12 +97,12 @@ main {
   margin-bottom: 10px;
 }
 
-.wheather-forcast-icon {
+.wheather-forecast-icon {
   text-align: center;
   font-size: 40px;
 }
 
-.wheather-forcast-temps {
+.wheather-forecast-temps {
   color: rgb(249, 45, 229);
   text-align: center;
   display: flex;
@@ -110,7 +110,7 @@ main {
   margin-top: 10px;
 }
 
-.wheather-forcast-temp {
+.wheather-forecast-temp {
   padding: 0 10px;
 }
 footer {
